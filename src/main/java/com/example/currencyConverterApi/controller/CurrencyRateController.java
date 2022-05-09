@@ -15,7 +15,7 @@ import java.util.List;
 public class CurrencyRateController {
     private final CurrencyRateService currencyRateService;
 
-        @GetMapping("/all")
+        @GetMapping("/all-info")
     public List<CurrencyRateOutputDTO> getAllCurrenciesAndRates() {
         return currencyRateService.showAllCurrenciesAndRates() ;
        }

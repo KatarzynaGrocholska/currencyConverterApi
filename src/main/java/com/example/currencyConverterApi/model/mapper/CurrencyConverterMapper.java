@@ -15,8 +15,8 @@ public interface CurrencyConverterMapper {
 
     CurrencyConverterMapper INSTANCE = Mappers.getMapper(CurrencyConverterMapper.class);
 
-    CurrencyConverterOutputDTO CurrencyConverterToCurrencyConverterOutputDTO(CurrencyConverter currencyConverter);
-    List<CurrencyConverterOutputDTO> CurrencyConverterTOCurrencyConverterOutputDTOList(List<CurrencyConverter> currencyConverter);
+    CurrencyConverterOutputDTO currencyConverterToCurrencyConverterOutputDTO(CurrencyConverter currencyConverter);
+    List<CurrencyConverterOutputDTO> currencyConverterTOCurrencyConverterOutputDTOList(List<CurrencyConverter> currencyConverter);
     CurrencyConverter RatesInputDTOToCurrencyConverter(RatesInputDTO ratesInputDTO);
     CurrencyConverter RateTableInputDTOToCurrencyConverter(RateTableInputDTO rateTableInputDTO);
 }

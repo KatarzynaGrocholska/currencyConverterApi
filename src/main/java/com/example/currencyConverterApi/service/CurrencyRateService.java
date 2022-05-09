@@ -22,6 +22,7 @@ public class CurrencyRateService {
     }
 
     public List<CurrencyRateOutputDTO> showAllCurrenciesAndRates() {
-        return currencyRateMapper.ratesInputDTOListTOCurrencyOutputDTO(getTableOfCurrencyRates().getRates());
+        return currencyRateMapper.ratesInputDTOListTOCurrencyOutputDTO(getTableOfCurrencyRates()
+                .getRates());
     }
 }

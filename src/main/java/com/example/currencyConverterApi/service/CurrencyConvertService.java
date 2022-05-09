@@ -61,7 +61,10 @@ public class CurrencyConvertService {
 
     public CurrencyConverterOutputDTO saveCurrencyConverterQuery(CurrencyConverter currencyConverter){
        CurrencyConverter currencyConverterQuery= currencyConverterRepository.save(currencyConverter);
-        return currencyConverterMapper.CurrencyConverterToCurrencyConverterOutputDTO(currencyConverterQuery);
+        return currencyConverterMapper.currencyConverterToCurrencyConverterOutputDTO(currencyConverterQuery);
     }
 
+    public List<CurrencyConverterOutputDTO> showAllSavedQueries(){
+        return currencyConverterMapper.currencyConverterTOCurrencyConverterOutputDTOList(currencyConverterRepository.findAll());
+    }
 }

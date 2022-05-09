@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    image: 'currencyapp'
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    container_name: currencyapp-container
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/currencyappdb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=currencyappdb
+      - POSTGRES_PORT=5432
