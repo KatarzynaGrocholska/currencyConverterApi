@@ -1,6 +1,5 @@
 package com.example.currencyConverterApi.service;
 
-import com.example.currencyConverterApi.model.mapper.CurrencyRateMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,8 @@ public class CurrencyService {
 
     public List<String> showAllCurrencies() {
         List<String> listOfCurrencies = new ArrayList<>();
-        for(int i=0; i< currencyRateService.showAllCurrenciesAndRates().size();i++) {
-        listOfCurrencies.add(currencyRateService.showAllCurrenciesAndRates().get(i).getCurrency());
+        for (int i = 0; i < currencyRateService.showAllCurrenciesAndRates().size(); i++) {
+            listOfCurrencies.add(currencyRateService.showAllCurrenciesAndRates().get(i).getCurrency());
         }
         return listOfCurrencies;
     }

@@ -1,7 +1,6 @@
 package com.example.currencyConverterApi.model.output_dto;
 
 import lombok.*;
-import org.springframework.lang.NonNull;
 
 @Getter
 @Setter

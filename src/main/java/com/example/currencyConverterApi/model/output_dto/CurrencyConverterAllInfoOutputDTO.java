@@ -1,22 +1,15 @@
-package com.example.currencyConverterApi.model.entity;
+package com.example.currencyConverterApi.model.output_dto;
 
 import lombok.*;
 
-import javax.persistence.*;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class CurrencyConverter {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    @Column(length = 3)
+public class CurrencyConverterAllInfoOutputDTO {
     private String fromCurrencyCode;
-    @Column(length = 3)
     private String toCurrencyCode;
     private double bidPrice;
     private double askPrice;

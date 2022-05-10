@@ -16,12 +16,9 @@ class CurrencyConverterMapperTest {
         //given
         CurrencyConverter expected = CurrencyConverter
                 .builder()
-                .askPriceOfSecondCurrency(3.4)
                 .valueInToCurrency(34.2)
                 .toCurrencyCode("PLN")
                 .fromCurrencyCode("EUR")
-                .bidPrice(4.12)
-                .askPrice(4.32)
                 .amount(100)
                 .tradingDate("23-04-2015")
                 .build();
@@ -31,9 +28,6 @@ class CurrencyConverterMapperTest {
         //then
         Assertions.assertAll(
                 () -> assertThat(actual).isNotNull(),
-                () -> assertThat(actual.getAskPriceOfSecondCurrency()).isEqualTo(expected.getAskPriceOfSecondCurrency()),
-                () -> assertThat(actual.getBidPrice()).isEqualTo(expected.getBidPrice()),
-                () -> assertThat(actual.getAskPrice()).isEqualTo(expected.getAskPrice()),
                 () -> assertThat(actual.getTradingDate()).isEqualTo(expected.getTradingDate()),
                 () -> assertThat(actual.getFromCurrencyCode()).isEqualTo(expected.getFromCurrencyCode()),
                 () -> assertThat(actual.getToCurrencyCode()).isEqualTo(expected.getToCurrencyCode()),

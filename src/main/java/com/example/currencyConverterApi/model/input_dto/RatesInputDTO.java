@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.Column;
-import javax.validation.constraints.Size;
 
 @Setter
 @Getter

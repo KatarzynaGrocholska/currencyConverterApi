@@ -20,16 +20,17 @@ public class CurrencyConverterController {
 
     @GetMapping("/nbp")
     public CurrencyConverterOutputDTO getConversionDataAndSaveQuery(@RequestParam String from,
-                                                        @RequestParam String to,
-                                                        @RequestParam double amount) {
+                                                                    @RequestParam String to,
+                                                                    @RequestParam double amount) {
 
         return currencyConvertService.saveCurrencyConverterQuery
                 (currencyConvertService.countValueOfGivenAmountInFromCurrencyToCurrency
                         (from, to, amount));
 
     }
+
     @GetMapping("/list")
-public List<CurrencyConverterOutputDTO> showAllSavedQueries(){
+    public List<CurrencyConverterOutputDTO> showAllSavedQueries() {
         return currencyConvertService.showAllSavedQueries();
-}
+    }
 }
