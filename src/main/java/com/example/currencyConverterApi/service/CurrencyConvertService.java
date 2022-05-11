@@ -20,7 +20,6 @@ public class CurrencyConvertService {
     private final CurrencyConverterMapper currencyConverterMapper;
     private final CurrencyConverterParametersValidation currencyConverterParametersValidation;
 
-
     public CurrencyConverter countValueOfGivenAmountInFromCurrencyToCurrency(String fromCurrency,
                                                                              String toCurrency,
                                                                              double amount) {
@@ -38,7 +37,6 @@ public class CurrencyConvertService {
         double askPrice = 0;
         double bidPrice = 0;
         double askSecondCurrencyPrice = 0;
-
 
         for (int i = 0; i < currenciesFromTableList.size(); i++) {
             for (int j = 0; j < currenciesFromTableList.size(); j++) {
@@ -60,7 +58,6 @@ public class CurrencyConvertService {
                     valueOfAmountInToCurrency = valueOfAmountInPLN / askSecondCurrencyPrice;
                 }
             }
-
         }
 
         return CurrencyConverter.builder()
@@ -71,10 +68,10 @@ public class CurrencyConvertService {
                 .bidPrice(bidPrice)
                 .askPriceOfSecondCurrency(askSecondCurrencyPrice)
                 .tradingDate(currencyRateService.getTableOfCurrencyRates().getEffectiveDate())
-                .valueInToCurrency(DoubleRounder.round(valueOfAmountInToCurrency, 5))
+                .valueInToCurrency(DoubleRounder.round(valueOfAmountInToCurrency, 2))
                 .build();
     }
-
+    
     public CurrencyConverterOutputDTO saveCurrencyConverterQuery(CurrencyConverter currencyConverter) {
         CurrencyConverter currencyConverterQuery = currencyConverterRepository.save(currencyConverter);
         return currencyConverterMapper.currencyConverterToCurrencyConverterOutputDTO(currencyConverterQuery);

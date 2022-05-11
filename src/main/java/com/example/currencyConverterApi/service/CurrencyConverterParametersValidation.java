@@ -24,10 +24,11 @@ public class CurrencyConverterParametersValidation {
             throw new CurrencyConverterException(CurrencyConverterError.CURRENCY_NOT_FOUND);
         }
     }
+
     public void checkIfCurrencyCodeExist(String currencyCode, List<RatesInputDTO> currenciesFromTableList) {
         boolean exist = false;
         for (RatesInputDTO ratesInputDTO : currenciesFromTableList) {
-            if (ratesInputDTO.getCode().equalsIgnoreCase(currencyCode)||
+            if (ratesInputDTO.getCode().equalsIgnoreCase(currencyCode) ||
                     currencyCode.equalsIgnoreCase("PLN")) {
                 exist = true;
             }
@@ -36,6 +37,7 @@ public class CurrencyConverterParametersValidation {
             throw new CurrencyConverterException(CurrencyConverterError.WRONG_CURRENCY_CODE);
         }
     }
+
     public void checkIfCurrenciesCodesAreTheSame(String toCurrency, String fromCurrency) {
         if (toCurrency.equalsIgnoreCase(fromCurrency)) {
             throw new CurrencyConverterException(CurrencyConverterError.SAME_CURRENCIES_CODE);

@@ -47,6 +47,7 @@ class CurrencyConverterParametersValidationTest {
             assertEquals("Currency code should not be null", e.getCurrencyConverterError().getMessage());
         }
     }
+
     @Test
     void shouldThrowExceptionWhenOneCurrenciesCodesAreTheSame() {
         //given
@@ -54,7 +55,7 @@ class CurrencyConverterParametersValidationTest {
         String currencyCodeTwo = "PLN";
         //when
         try {
-            currencyConverterParametersValidation.checkIfCurrenciesCodesAreTheSame(currencyCodeOne,currencyCodeTwo);
+            currencyConverterParametersValidation.checkIfCurrenciesCodesAreTheSame(currencyCodeOne, currencyCodeTwo);
 
         } catch (CurrencyConverterException e) {
             //then
@@ -69,7 +70,7 @@ class CurrencyConverterParametersValidationTest {
         List<RatesInputDTO> currenciesFromTableList = Collections.emptyList();
         //when
         try {
-            currencyConverterParametersValidation.checkIfCurrencyCodeExist(currencyCodeOne,currenciesFromTableList);
+            currencyConverterParametersValidation.checkIfCurrencyCodeExist(currencyCodeOne, currenciesFromTableList);
 
         } catch (CurrencyConverterException e) {
             //then
