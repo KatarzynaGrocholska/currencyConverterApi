@@ -13,7 +13,7 @@ public class CurrencyConverterAllInfoOutputDTO {
     private String toCurrencyCode;
     private double bidPrice;
     private double askPrice;
-    private double askPriceOfSecondCurrency;
+    private double bidPriceOfSecondCurrency;
     private String tradingDate;
     private double amount;
     private double valueInToCurrency;

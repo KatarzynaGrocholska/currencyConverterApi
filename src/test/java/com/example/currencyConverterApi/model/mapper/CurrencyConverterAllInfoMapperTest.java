@@ -25,7 +25,7 @@ class CurrencyConverterAllInfoMapperTest {
                 .amount(100)
                 .tradingDate("23-04-2015")
                 .askPrice(3.5)
-                .askPriceOfSecondCurrency(4.5)
+                .bidPriceOfSecondCurrency(4.5)
                 .bidPrice(5.4)
                 .build();
         List<CurrencyConverter> expected = new ArrayList<>();
@@ -43,7 +43,7 @@ class CurrencyConverterAllInfoMapperTest {
                 () -> assertThat(actual.get(0).getAmount()).isEqualTo(expected.get(0).getAmount()),
                 () -> assertThat(actual.get(0).getAskPrice()).isEqualTo(expected.get(0).getAskPrice()),
                 () -> assertThat(actual.get(0).getBidPrice()).isEqualTo(expected.get(0).getBidPrice()),
-                () -> assertThat(actual.get(0).getAskPriceOfSecondCurrency()).isEqualTo(expected.get(0).getAskPriceOfSecondCurrency()));
+                () -> assertThat(actual.get(0).getBidPriceOfSecondCurrency()).isEqualTo(expected.get(0).getBidPriceOfSecondCurrency()));
 
     }
 

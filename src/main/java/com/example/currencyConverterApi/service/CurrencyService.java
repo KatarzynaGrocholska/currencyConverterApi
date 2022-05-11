@@ -1,6 +1,5 @@
 package com.example.currencyConverterApi.service;
 
-import com.example.currencyConverterApi.repository.CurrencyRatesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
