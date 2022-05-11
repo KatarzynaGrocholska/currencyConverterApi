@@ -1,9 +1,9 @@
 package com.example.currencyConverterApi.model.mapper;
 
-import com.example.currencyConverterApi.model.entity.CurrencyRates;
+import com.example.currencyConverterApi.model.entity.TableCurrencyRates;
 import com.example.currencyConverterApi.model.entity.Rates;
 import com.example.currencyConverterApi.model.input_dto.RatesInputDTO;
-import com.example.currencyConverterApi.model.output_dto.CurrencyRateOutputDTO;
+import com.example.currencyConverterApi.model.output_dto.TableCurrencyRateOutputDTO;
 import com.example.currencyConverterApi.model.output_dto.RatesOutputDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -68,13 +68,13 @@ class CurrencyRateMapperTest {
     @Test
     void shouldReturnCurrencyRateOutputDtoWhenGivenCurrencyRates() {
         //given
-        CurrencyRates expected = CurrencyRates
+        TableCurrencyRates expected = TableCurrencyRates
                 .builder()
                 .tradingDate("22-06-2021")
                 .build();
 
         //when
-        CurrencyRateOutputDTO actual =
+        TableCurrencyRateOutputDTO actual =
                 mapper.currencyRatesToCurrencyRatesOutputDTO(expected);
         //then
         Assertions.assertAll(

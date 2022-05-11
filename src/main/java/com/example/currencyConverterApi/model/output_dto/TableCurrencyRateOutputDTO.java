@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrencyRateOutputDTO {
+public class TableCurrencyRateOutputDTO {
 
     private String tradingDate;
     private List<RatesOutputDTO> ratesOutputDTOList;

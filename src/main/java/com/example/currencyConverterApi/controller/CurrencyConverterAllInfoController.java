@@ -16,7 +16,7 @@ public class CurrencyConverterAllInfoController {
 
     private final CurrencyConverterAllInfoService currencyConverterAllInfoService;
 
-    @GetMapping("/all-details")
+    @GetMapping("/all-details-converter-queries")
     public List<CurrencyConverterAllInfoOutputDTO> showAllDetailsOfSavedQueries() {
         return currencyConverterAllInfoService.showAllColumnsInSavedQueries();
     }

@@ -1,6 +1,6 @@
 package com.example.currencyConverterApi.controller;
 
-import com.example.currencyConverterApi.model.output_dto.CurrencyRateOutputDTO;
+import com.example.currencyConverterApi.model.output_dto.TableCurrencyRateOutputDTO;
 import com.example.currencyConverterApi.service.CurrencyRateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ public class CurrencyRateController {
     private final CurrencyRateService currencyRateService;
 
     @GetMapping("/rates")
-    public CurrencyRateOutputDTO getCurrenciesAndRates() {
+    public TableCurrencyRateOutputDTO getCurrenciesAndRatesList() {
         return currencyRateService.saveCurrencyRateQuery(currencyRateService.getCurrencyRatesQuery());
     }
 }

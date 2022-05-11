@@ -14,8 +14,8 @@ import java.util.List;
 public class CurrencyController {
     private final CurrencyService currencyService;
 
-    @GetMapping("/all-currencies")
-    public List<String> getAllCurrenciesAndRates() {
+    @GetMapping("/list-currencies")
+    public List<String> getAllCurrencies() {
         return currencyService.showAllCurrencies();
     }
 

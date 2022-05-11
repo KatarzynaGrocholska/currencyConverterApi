@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "currency_rates")
-public class CurrencyRates {
+@Table(name = "table_currency_rates")
+public class TableCurrencyRates {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

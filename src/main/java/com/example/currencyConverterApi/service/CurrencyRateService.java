@@ -1,11 +1,10 @@
 package com.example.currencyConverterApi.service;
 
-import com.example.currencyConverterApi.model.entity.CurrencyRates;
+import com.example.currencyConverterApi.model.entity.TableCurrencyRates;
 import com.example.currencyConverterApi.model.entity.Rates;
 import com.example.currencyConverterApi.model.input_dto.RateTableInputDTO;
-import com.example.currencyConverterApi.model.input_dto.RatesInputDTO;
 import com.example.currencyConverterApi.model.mapper.CurrencyRateMapper;
-import com.example.currencyConverterApi.model.output_dto.CurrencyRateOutputDTO;
+import com.example.currencyConverterApi.model.output_dto.TableCurrencyRateOutputDTO;
 import com.example.currencyConverterApi.model.output_dto.RatesOutputDTO;
 import com.example.currencyConverterApi.repository.CurrencyRatesRepository;
 import com.example.currencyConverterApi.repository.RatesRepository;
@@ -13,7 +12,6 @@ import com.example.currencyConverterApi.webclient.WebClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,27 +27,26 @@ private final RatesRepository ratesRepository;
         return webClient.callApi();
     }
 
-    public CurrencyRates getCurrencyRatesQuery() {
+    public TableCurrencyRates getCurrencyRatesQuery() {
 
        List<Rates> ratesListFromOneQuery = currencyRateMapper.ratesInputDTOListToRatesList
                (getTableOfCurrencyRates()
                        .getRates());
        String tradingDate = getTableOfCurrencyRates().getEffectiveDate();
 
-       return CurrencyRates.builder()
+       return TableCurrencyRates.builder()
                .rates(ratesListFromOneQuery)
                .tradingDate(tradingDate)
                .build();
     }
 
-    public CurrencyRateOutputDTO saveCurrencyRateQuery(CurrencyRates currencyRates) {
-        CurrencyRates currencyRatesQuery = currencyRatesRepository.save(currencyRates);
+    public TableCurrencyRateOutputDTO saveCurrencyRateQuery(TableCurrencyRates tableCurrencyRates) {
+        TableCurrencyRates tableCurrencyRatesQuery = currencyRatesRepository.save(tableCurrencyRates);
        List<RatesOutputDTO> ratesOutputDTOList = currencyRateMapper.ratesListToRatesOutputDTOList(ratesRepository.findAll());
-       CurrencyRateOutputDTO currencyRateOutputDTO =currencyRateMapper.currencyRatesToCurrencyRatesOutputDTO(currencyRatesQuery);
-        return CurrencyRateOutputDTO.builder()
+       TableCurrencyRateOutputDTO tableCurrencyRateOutputDTO =currencyRateMapper.currencyRatesToCurrencyRatesOutputDTO(tableCurrencyRatesQuery);
+        return TableCurrencyRateOutputDTO.builder()
                 .ratesOutputDTOList(ratesOutputDTOList)
-                .tradingDate(currencyRateOutputDTO.getTradingDate())
+                .tradingDate(tableCurrencyRateOutputDTO.getTradingDate())
                 .build();
     }
-
 }

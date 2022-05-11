@@ -18,7 +18,7 @@ public class CurrencyConverterController {
 
     private final CurrencyConvertService currencyConvertService;
 
-    @GetMapping("/nbp")
+    @GetMapping("/query")
     public CurrencyConverterOutputDTO getConversionDataAndSaveQuery(@RequestParam String from,
                                                                     @RequestParam String to,
                                                                     @RequestParam double amount) {
@@ -29,7 +29,7 @@ public class CurrencyConverterController {
 
     }
 
-    @GetMapping("/list")
+    @GetMapping("/list-of-converter-queries")
     public List<CurrencyConverterOutputDTO> showAllSavedQueries() {
         return currencyConvertService.showAllSavedQueries();
     }
